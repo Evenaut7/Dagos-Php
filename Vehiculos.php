@@ -40,6 +40,21 @@ class bicicleta implements vehiculo {
     }
 }
 
+class camion implements vehiculo {
+    public $distancia = 0;
+    public $velocidad = 30;
+    
+    public function mover($tiempo){
+        $this->distancia = $this->distancia + $tiempo * $this->velocidad;       
+    }
+    public function posicion(){
+        return $this->distancia;
+    }
+    public function reiniciarPosicion(){
+        $this->distancia = 0;
+    }
+}
+
 class carrera {
     
     public $vehiculo1;
@@ -62,6 +77,7 @@ class carrera {
 
 $fiat = new Auto(45);
 $bici = new Bicicleta();
+$camion = new Camion();
 $bici->mover(20); 
 print($bici->posicion() . "\n"); 
 $bici->mover(10); 
